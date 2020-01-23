@@ -1,8 +1,9 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import Markdown from "markdown-to-jsx";
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { docco } from '../../Config/docco'
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import './BlogHome.css'
 
 
 export default function BlogHome({ blog }) {
@@ -23,19 +24,19 @@ export default function BlogHome({ blog }) {
     </a>
 )
 
-const CodeBlock = ({ children }) => <SyntaxHighlighter style={docco}>{children.props.children}</SyntaxHighlighter>
+const CodeBlock = ({ children }) => <SyntaxHighlighter language="javascript" style={docco}>{children.props.children}</SyntaxHighlighter>
 
   return (
-    <div>
-      <h1>{blog.title}</h1>
+    <div className="blog-div-main">
+      <h1 className="blog-title">{blog.title}</h1>
       <Markdown
         options={{
           overrides: {
-            a: {
-              component: HyperLink
-            },
-            pre: {
-              component: CodeBlock
+            // a: {
+            //   component: HyperLink
+            // },
+             pre: {
+               component: CodeBlock
             }
           }
         }}
