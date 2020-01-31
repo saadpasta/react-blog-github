@@ -1,0 +1,46 @@
+.main-header {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 5em;
+  text-align: center;
+  background-color: #f1f6f8;
+}
+
+.wrap-big {
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 1140px;
+  text-align: center;
+}
+
+.header-title {
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 1.25rem 0;
+  font-size: 4.5em;
+  text-align: center;
+  color: #ff5252;
+}
+.header-subtitle {
+  font-weight: 400;
+  color: #37474f;
+  line-height: 1.15;
+  margin: 1.25rem 0;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-subtitle {
+    font-size: 2em;
+  }
+
+  .header-title {
+    font-size: 3em;
+  }
+
+  .main-header {
+    padding: 3em;
+  }
+}

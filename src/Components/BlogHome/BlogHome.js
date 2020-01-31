@@ -18,7 +18,7 @@ export default function BlogHome({ blog }) {
         {`
           a {
             color: #484848;
-            font-weight: 700;
+            font-weight: 400;
           }
         `}
       </style>
@@ -46,9 +46,9 @@ export default function BlogHome({ blog }) {
       <Markdown
         options={{
           overrides: {
-            // a: {
+            //  a: {
             //   component: HyperLink
-            // },
+            //  },
             pre: {
               component: CodeBlock
             }

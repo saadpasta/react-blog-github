@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light|Raleway|Playfair+Display:700i,900");
+@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light|Quicksand|Playfair+Display:700i,900");
 
 html,
 body {
@@ -40,7 +40,7 @@ i,
 a,
 li {
   margin-top: 21px;
-  font-family: "Raleway";
+  font-family: "Quicksand";
   font-size: 21px;
   letter-spacing: -0.03px;
   line-height: 1.58;
@@ -72,7 +72,7 @@ code {
 
 pre > code {
   background: transparent !important;
-  font-family: "Raleway";
+  font-family: "Quicksand";
   font-size: 18px;
   padding: 0px;
 }
@@ -142,7 +142,7 @@ a:focus {
 }
 
 .blog-title {
-    /* text-align: center; */
+  /* text-align: center; */
 }
 
 img {
@@ -150,7 +150,7 @@ img {
   height: auto;
 }
 
-.blog-date{
+.blog-date {
   color: rgba(0, 0, 0, 0.54);
   font-weight: 400;
   font-size: 16px;
@@ -158,23 +158,39 @@ img {
   margin-top: 0px;
 }
 
-.avatar{
+.avatar {
   width: 50px;
-	height: 50px;
+  height: 50px;
   border-radius: 40px; /* половина ширины и высоты */
   margin: 10px;
   margin-left: 0px;
-
 }
 
-.author-name{
+.author-name {
   margin-bottom: 0px;
   margin-top: 0px;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.84);
 }
 
-.author-details{
+.author-details {
   display: flex;
   align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .blog-title {
+    /* text-align: center; */
+    font-size: 30px;
+  }
+
+  p,
+  i,
+  a,
+  li {
+    font-size: 18px;
+  }
+  blockquote{
+    font-size: 20px;
+  }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
 import BlogHome from "../../Components/BlogHome/BlogHome";
+import Header from "../../Components/Header/Header";
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
 
@@ -46,7 +47,7 @@ function Blogs() {
         `
       })
       .then(result => {
-        setBlogsFunction(result.data.repository.issues.nodes)
+        setBlogsFunction(result.data.repository.issues.nodes);
         console.log(result.data.repository.issues.nodes);
       });
   }
@@ -54,11 +55,14 @@ function Blogs() {
   function setBlogsFunction(array) {
     setBlogs(array);
   }
-  return <div>
-      {blogs.map((v,i)=>{
-          return <BlogHome blog={v} key={i}/>
+  return (
+    <div>
+      <Header />
+      {blogs.map((v, i) => {
+        return <BlogHome blog={v} key={i} />;
       })}
-  </div>;
+    </div>
+  );
 }
 
 export default Blogs;
