@@ -32,14 +32,14 @@ export default function BlogHome({ blog }) {
   );
 
   return (
-    <div className="blog-div-main">
+    <div >
       <h1 className="blog-title">{blog.title}</h1>
       <div>
         <div className="author-details">
           <img class="avatar" src={blog.author.avatarUrl}></img>
           <div>
             <p className="author-name">{blog.author.login}</p>
-            <p className="blog-date">{moment(blog.updatedAt).format("DD MMM YYYY")} . {readingTime(blog.body).minutes} min read</p>
+            <p className="blog-date">{moment(blog.updatedAt).format("DD MMM YYYY")} . {readingTime(blog.body).minutes} Min Read</p>
           </div>
         </div>
       </div>

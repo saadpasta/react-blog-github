@@ -3,6 +3,7 @@ import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
 import BlogHome from "../../Components/BlogHome/BlogHome";
 import Header from "../../Components/Header/Header";
+import BlogCard from "../../Components/BlogCard/BlogCard";
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
 
@@ -58,9 +59,11 @@ function Blogs() {
   return (
     <div>
       <Header />
+      <div className="blog-div-main">
       {blogs.map((v, i) => {
-        return <BlogHome blog={v} key={i} />;
+        return <BlogCard blog={v} key={i} />;
       })}
+      </div>
     </div>
   );
 }
