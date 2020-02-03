@@ -31,10 +31,11 @@
     padding: 3px 15px;
     font-size: 12px;
     text-transform: uppercase;
-    color: #fff;
+    color: rgba(0, 0, 0, 0.678);
     font-weight: 300;
     line-height: 28px;
-    font-family: "Quicksand"
+    font-family: "Quicksand";
+    margin-right: 10px;
 }
 
 .reading-time{
