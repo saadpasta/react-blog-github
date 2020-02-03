@@ -4,6 +4,7 @@ import { gql } from "apollo-boost";
 import BlogHome from "../../Components/BlogHome/BlogHome";
 import Header from "../../Components/Header/Header";
 import BlogCard from "../../Components/BlogCard/BlogCard";
+
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
 
@@ -27,13 +28,20 @@ function Blogs() {
       .query({
         query: gql`
           {
-            repository(owner: "saadpasta", name: "gatsby-blog-github") {
-              issues(first: 100, states: OPEN) {
+            repository(owner: "saadpasta", name: "gatsby-blog-github" ) {
+              issues(first: 100, states: OPEN filterBy:{labels:"blog"}) {
                 nodes {
                   title
                   body
                   bodyHTML
                   bodyHTML
+                  number
+                  labels(first:100){
+                    nodes{
+                      color
+                      name
+                    }
+                  }
                   author {
                     url
                     avatarUrl
