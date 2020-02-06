@@ -130,7 +130,7 @@ export default function BlogHome() {
             {blog.body}
           </Markdown>
           {addReaction && (
-            <span className="reaction-github-emoji">
+            <span className="reaction-github-emoji anim-scale-in">
               <GithubSelector onSelect={emoji => onEmojiSelect(emoji)} />
             </span>
           )}
