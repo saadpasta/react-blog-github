@@ -133,13 +133,13 @@ a:hover {
   color: white;
 }
 
-a:focus {
+/* a:focus {
   background: #fff;
   outline: none;
   background: #080808;
   color: #fff;
   box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .blog-title {
   /* text-align: center; */
@@ -153,7 +153,7 @@ img {
 .blog-date {
   color: rgba(0, 0, 0, 0.54);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 0px;
   margin-top: 0px;
 }

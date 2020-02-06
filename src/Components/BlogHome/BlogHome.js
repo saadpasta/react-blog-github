@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
-import ReactMarkdown from "react-markdown";
 import moment from "moment";
 import Markdown from "markdown-to-jsx";
 import readingTime from "reading-time";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import "./BlogHome.css";
+import { GithubCounter } from "react-reactions";
 
 export default function BlogHome() {
   const [blog, setBlogs] = useState([]);
-  const issueNumber = parseInt(window.location.pathname.split("/").pop())
+  const issueNumber = parseInt(window.location.pathname.split("/").pop());
 
   useEffect(() => {
     getBlogsFromGithubIssues();
@@ -33,11 +33,12 @@ export default function BlogHome() {
       .query({
         query: gql`
           {
-            repository(owner: "saadpasta", name: "gatsby-blog-github") {
+            repository(owner: "saadpasta", name: "react-blog-github") {
               issue(number: ${issueNumber}) {
                 title
                 body
                 bodyHTML
+                bodyText
                 number
                 bodyHTML
                 author {
@@ -54,7 +55,6 @@ export default function BlogHome() {
       })
       .then(result => {
         setBlogsFunction(result.data.repository.issue);
-        console.log(result.data.repository.issue);
       })
       .catch(err => {
         console.error(err);
@@ -69,7 +69,7 @@ export default function BlogHome() {
     return { __html: blog.bodyHTML };
   }
   const HyperLink = ({ children, ...props }) => (
-    <a href={props.href} target="_blank" rel="noopener noreferrer">
+    <a href={props.href} target="_blank">
       {children}
       <style jsx>
         {`
@@ -107,9 +107,9 @@ export default function BlogHome() {
           <Markdown
             options={{
               overrides: {
-                //  a: {
-                //   component: HyperLink
-                //  },
+                a: {
+                  component: HyperLink
+                },
                 pre: {
                   component: CodeBlock
                 }
@@ -118,6 +118,14 @@ export default function BlogHome() {
           >
             {blog.body}
           </Markdown>
+          <GithubCounter
+            counters={[
+              {
+                emoji: "👍", // String emoji reaction
+                by: "case" // String of persons name
+              }
+            ]}
+          />
         </div>
       )}
     </div>

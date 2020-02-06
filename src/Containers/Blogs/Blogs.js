@@ -28,18 +28,19 @@ function Blogs() {
       .query({
         query: gql`
           {
-            repository(owner: "saadpasta", name: "gatsby-blog-github" ) {
+            repository(owner: "saadpasta", name: "react-blog-github" ) {
               issues(first: 100, states: OPEN filterBy:{labels:"blog"}) {
                 nodes {
                   title
                   body
                   bodyHTML
-                  bodyHTML
+                  bodyText
                   number
                   labels(first:100){
                     nodes{
                       color
                       name
+                      id
                     }
                   }
                   author {
