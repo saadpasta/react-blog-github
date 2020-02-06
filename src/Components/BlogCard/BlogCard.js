@@ -29,7 +29,7 @@ export default function BlogCard({ blog }) {
         <div>
           {lables.map(value => {
             return (
-              <div key={value} className="blog-catgeory" style={{ backgroundColor: `#${value.color}` }}>
+              <div key={value.id} className="blog-catgeory" style={{ backgroundColor: `#${value.color}` }}>
                 {value.name}
               </div>
             );
@@ -45,9 +45,7 @@ export default function BlogCard({ blog }) {
         </div>
         <div className="blog-card-description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...
+            {blog.bodyText}
           </p>
         </div>
         <div className="blog-card-footer"></div>
