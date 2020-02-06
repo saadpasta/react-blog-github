@@ -182,8 +182,12 @@ img {
   width: 90%;
   max-width: 700px;
   padding: 20px 10px;
+  position: relative;
 }
-
+.reaction-github-emoji{
+  position: absolute;
+  bottom: 60px;
+}
 @media only screen and (max-width: 768px) {
   .blog-title {
     /* text-align: center; */

@@ -7,10 +7,11 @@ import readingTime from "reading-time";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import "./BlogHome.css";
-import { GithubCounter } from "react-reactions";
+import { GithubCounter, GithubSelector } from "react-reactions";
 
 export default function BlogHome() {
   const [blog, setBlogs] = useState([]);
+  const [addReaction, setAddreaction] = useState(false);
   const issueNumber = parseInt(window.location.pathname.split("/").pop());
 
   useEffect(() => {
@@ -88,6 +89,16 @@ export default function BlogHome() {
     </SyntaxHighlighter>
   );
 
+  function githubCounterEmojiSelect(emoji) {
+    console.log(emoji);
+  }
+
+  function githubCounterAddReaction() {
+    setAddreaction(!addReaction);
+  }
+  function onEmojiSelect(emoji) {
+    console.log(emoji);
+  }
   return (
     <div>
       {blog.title && (
@@ -118,6 +129,11 @@ export default function BlogHome() {
           >
             {blog.body}
           </Markdown>
+          {addReaction && (
+            <span className="reaction-github-emoji">
+              <GithubSelector onSelect={emoji => onEmojiSelect(emoji)} />
+            </span>
+          )}
           <GithubCounter
             counters={[
               {
@@ -125,6 +141,8 @@ export default function BlogHome() {
                 by: "case" // String of persons name
               }
             ]}
+            onSelect={emoji => githubCounterEmojiSelect(emoji)}
+            onAdd={() => githubCounterAddReaction()}
           />
         </div>
       )}
