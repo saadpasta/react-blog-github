@@ -1,5 +1,6 @@
 .blog-card-div{
     cursor: pointer;
+    margin-bottom: 6rem;
 }
 
 .blog-card-description > p {
