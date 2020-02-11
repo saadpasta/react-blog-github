@@ -8,27 +8,31 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import "./BlogHome.css";
 import { GithubCounter, GithubSelector } from "react-reactions";
+import firebaseAuth from "../../Config/firebase";
+import firebase from "firebase";
 
 export default function BlogHome() {
   const [blog, setBlogs] = useState([]);
   const [addReaction, setAddreaction] = useState(false);
-  const issueNumber = parseInt(window.location.pathname.split("/").pop());
+  const issueNumber = parseInt(window.location.href.split("/").pop());
+  const client = new ApolloClient({
+    uri: "https://api.github.com/graphql",
+    request: operation => {
+      operation.setContext({
+        headers: {
+          authorization: `Bearer ${"cf8922fd43a1786992392229004bc88654a79035"}`
+        }
+      });
+    }
+  });
+
 
   useEffect(() => {
     getBlogsFromGithubIssues();
   }, []);
 
   function getBlogsFromGithubIssues() {
-    const client = new ApolloClient({
-      uri: "https://api.github.com/graphql",
-      request: operation => {
-        operation.setContext({
-          headers: {
-            authorization: `Bearer ${atob("ODM5ODY0MWRmYzUxOTcyZTdhMWMxM2NmZGIwNWU4Yzc3NmI5NTg0ZQ==")}`
-          }
-        });
-      }
-    });
+    
 
     client
       .query({
@@ -66,6 +70,31 @@ export default function BlogHome() {
     setBlogs(array);
   }
 
+  function loginWithGithub () {
+    var provider = new firebase.auth.GithubAuthProvider();
+
+    firebaseAuth.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+      var token = result.credential.accessToken;
+
+      console.log(result)
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      console.log(error)
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+    
+  }
+
   function createMarkup() {
     return { __html: blog.bodyHTML };
   }
@@ -98,7 +127,38 @@ export default function BlogHome() {
   }
   function onEmojiSelect(emoji) {
     console.log(emoji);
+    addEmojiReactionOnBlog()
   }
+
+
+  function addEmojiReactionOnBlog(){
+   client
+      .mutate({
+        mutation: gql`
+          {
+            addReaction(input:{subjectId:"${blog.id}" content:HEART, clientMutationId:"MDQ6VXNlcjQyMDYzNjMz"}) {
+              reaction {
+                  createdAt 
+              }
+              subject {
+                id
+              }
+              reaction{
+                content
+              }
+            }          
+          }
+        `
+      })
+      .then(result => {
+        setBlogsFunction(result.data.repository.issue);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
+
   return (
     <div>
       {blog.title && (
