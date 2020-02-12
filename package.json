@@ -1,6 +1,6 @@
 {
-  "name": "github-blogs",
-  "homepage": "https://saadpasta.github.io/blog",
+  "name": "react-blog-github",
+  "homepage": "https://saadpasta.github.io/react-blog-github",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
