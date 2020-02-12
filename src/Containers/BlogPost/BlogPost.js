@@ -6,13 +6,15 @@ import Markdown from "markdown-to-jsx";
 import readingTime from "reading-time";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import "./BlogHome.css";
+import "./BlogPost.css";
 import { GithubCounter, GithubSelector } from "react-reactions";
+import GithubReactionTextCard from "../../Components/GithubReactionTextCard/GithubReactionTextCard";
 
 export default function BlogHome() {
   const [blog, setBlogs] = useState([]);
   const [addReaction, setAddreaction] = useState(false);
-  const issueNumber = parseInt(window.location.pathname.split("/").pop());
+  const [reactionCounter, setReactionCounter] = useState([]);
+  const issueNumber = parseInt(window.location.href.split("/").pop());
 
   useEffect(() => {
     getBlogsFromGithubIssues();
@@ -39,6 +41,7 @@ export default function BlogHome() {
                 title
                 body
                 bodyHTML
+                url
                 bodyText
                 number
                 bodyHTML
@@ -46,6 +49,15 @@ export default function BlogHome() {
                   url
                   avatarUrl
                   login
+                }
+                reactions(first:100){
+                  nodes{
+                    content
+                    user{
+                      id
+                      login
+                    }
+                  }
                 }
                 updatedAt
                 id
@@ -64,13 +76,60 @@ export default function BlogHome() {
 
   function setBlogsFunction(array) {
     setBlogs(array);
+    setReactionFun(array.reactions.nodes);
+  }
+
+  function setReactionFun(reactions) {
+    // {
+    //   emoji: "👍", // String emoji reaction
+    //   by: "case" // String of persons name
+    // }
+
+    let reactions_array = [];
+    reactions.forEach(element => {
+      let obj = {
+        by: element.user.login,
+        emoji: getEmojiStringByName(element.content)
+      };
+      reactions_array.push(obj);
+    });
+
+    setReactionCounter(reactions_array);
+  }
+
+  function getEmojiStringByName(emojiName) {
+    switch (emojiName) {
+      case "THUMBS_UP":
+        return "👍";
+
+      case "THUMBS_DOWN":
+        return "👎";
+
+      case "LAUGH":
+        return "😄";
+
+      case "HOORAY":
+        return "🎉";
+
+      case "CONFUSED":
+        return "😕";
+
+      case "HEART":
+        return "❤️";
+
+      case "ROCKET":
+        return "🚀";
+
+      case "EYES":
+        return "👀";
+    }
   }
 
   function createMarkup() {
     return { __html: blog.bodyHTML };
   }
   const HyperLink = ({ children, ...props }) => (
-    <a href={props.href} target="_blank">
+    <a href={props.href} target="_blank" className="blog-post-anchor">
       {children}
       <style jsx>
         {`
@@ -110,7 +169,7 @@ export default function BlogHome() {
               <div>
                 <p className="author-name">{blog.author.login}</p>
                 <p className="blog-date">
-                  {moment(blog.updatedAt).format("DD MMM YYYY")} . {readingTime(blog.body).minutes} Min Read
+                  {moment(blog.updatedAt).format("DD MMM YYYY")} . {readingTime(blog.body).minutes} Min Read . <a href={blog.url} target="_black">View On Github</a>
                 </p>
               </div>
             </div>
@@ -131,19 +190,11 @@ export default function BlogHome() {
           </Markdown>
           {addReaction && (
             <span className="reaction-github-emoji anim-scale-in">
-              <GithubSelector onSelect={emoji => onEmojiSelect(emoji)} />
+              {/* <GithubSelector onSelect={emoji => onEmojiSelect(emoji)} /> */}
+              <GithubReactionTextCard link={blog.url}/>
             </span>
           )}
-          <GithubCounter
-            counters={[
-              {
-                emoji: "👍", // String emoji reaction
-                by: "case" // String of persons name
-              }
-            ]}
-            onSelect={emoji => githubCounterEmojiSelect(emoji)}
-            onAdd={() => githubCounterAddReaction()}
-          />
+          <GithubCounter counters={reactionCounter} onSelect={emoji => githubCounterEmojiSelect(emoji)} onAdd={() => githubCounterAddReaction()} />
         </div>
       )}
     </div>

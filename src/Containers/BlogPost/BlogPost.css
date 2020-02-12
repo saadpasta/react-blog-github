@@ -118,7 +118,7 @@ mark,
 
 /* Slide up */
 
-a {
+.blog-post-anchor {
   color: #343139;
   text-decoration: none;
   /* border-bottom: 0.125em solid #2b2827; */
@@ -128,7 +128,7 @@ a {
   padding-left: 2px;
 }
 
-a:hover {
+.blog-post-anchor:hover {
   box-shadow: inset 0 -1.125em 0 #080808;
   color: white;
 }
@@ -157,7 +157,17 @@ img {
   margin-bottom: 0px;
   margin-top: 0px;
 }
-
+.blog-date > a {
+  font-size: 14px;
+  text-decoration: none;
+  transition-duration: 0.15s, 0.15s, 0.15s;
+  transition-timing-function: ease-in, ease-in, ease-in;
+  transition-delay: 0s, 0s, 0s;
+  color: rgba(0, 0, 0, 0.54);
+}
+.blog-date > a:hover {
+  color: rgba(0, 0, 0, 0.84);
+}
 .avatar {
   width: 50px;
   height: 50px;

@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import App from "./App"
 import Blogs from "./Containers/Blogs/Blogs"
-import BlogHome from "./Components/BlogHome/BlogHome";
+import BlogHome from "./Containers/BlogPost/BlogPost";
 
 var createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();

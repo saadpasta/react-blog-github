@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
-import BlogHome from "../../Components/BlogHome/BlogHome";
+import BlogHome from "../BlogPost/BlogPost";
 import Header from "../../Components/Header/Header";
 import BlogCard from "../../Components/BlogCard/BlogCard";
 
@@ -58,7 +58,6 @@ function Blogs() {
       })
       .then(result => {
         setBlogsFunction(result.data.repository.issues.nodes);
-        console.log(result.data.repository.issues.nodes);
       });
   }
 
