@@ -1,5 +1,4 @@
-# React Github Issue Blog
-### Blog Built on Reactjs Using Github Issues as the Data Source . 
+# React Blog Using Github Issues 📝 ![GitHub](https://img.shields.io/github/license/saadpasta/react-blog-github?color=blue)
 
 
-⚠️ In Progress
+## Setup your very own blog in Less then 10 min and establish yourself as a personal brand. 🤯
