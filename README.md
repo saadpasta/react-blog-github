@@ -14,18 +14,18 @@
 
 ## :fire: Features
 
-- Own your content
-- Write using Markdown On Github Issues
-- Syntax/Code Highlighting
-- Fully customizable
-- Tags / Topics 
-- Links
-- Reactions 
-- Images 
-- Block qoute 
-- Minutes Read
-- Beautiful UI Like Medium
-- Easy deployment: Using Github Issues
+:white_check_mark: Own your content \
+:white_check_mark: Write using Markdown On Github Issues \
+:white_check_mark: Syntax/Code Highlighting \
+:white_check_mark: Fully customizable \
+:white_check_mark: Tags - Topics  \
+:white_check_mark: Links \
+:white_check_mark: Reactions  \
+:white_check_mark: Images \
+:white_check_mark: Minutes Read \
+:white_check_mark: Beautiful UI Like Medium \
+:white_check_mark: Easy deployment: Using Github Issues \
+:white_check_mark: Beautiful blockquote   
 
 
 ## :link: Live Demo
