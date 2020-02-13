@@ -25,6 +25,13 @@
 - Beautiful UI Like Medium
 - Easy deployment: Using Github Issues
 
+## :link: Live Demo
+
+Here's a [live demo](https://saadpasta.github.io/react-blog-github/#/)
+
+Github [Issues / Blogs](https://github.com/saadpasta/react-blog-github/issues)
+
+
 
 ## 🚀 Get Up and Running in 5 Minutes
 You can get a react-blog site up and running on your local dev environment in 5 minutes with these four steps:
