@@ -4,6 +4,7 @@ import { gql } from "apollo-boost";
 import BlogHome from "../BlogPost/BlogPost";
 import Header from "../../Components/Header/Header";
 import BlogCard from "../../Components/BlogCard/BlogCard";
+import { config } from "../../config";
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -18,7 +19,7 @@ function Blogs() {
       request: operation => {
         operation.setContext({
           headers: {
-            authorization: `Bearer ${atob("ODM5ODY0MWRmYzUxOTcyZTdhMWMxM2NmZGIwNWU4Yzc3NmI5NTg0ZQ==")}`
+            authorization: `Bearer ${atob(config.githubConvertedToken)}`
           }
         });
       }
@@ -28,16 +29,16 @@ function Blogs() {
       .query({
         query: gql`
           {
-            repository(owner: "saadpasta", name: "react-blog-github" ) {
-              issues(first: 100, states: OPEN filterBy:{labels:"blog"}) {
+            repository(owner: "${config.githubUserName}", name: "${config.githubRepo}") {
+              issues(first: 100, states: OPEN, filterBy: { labels: "blog" }) {
                 nodes {
                   title
                   body
                   bodyHTML
                   bodyText
                   number
-                  labels(first:100){
-                    nodes{
+                  labels(first: 100) {
+                    nodes {
                       color
                       name
                       id
@@ -68,9 +69,9 @@ function Blogs() {
     <div>
       <Header />
       <div className="blog-div-main">
-      {blogs.map((v, i) => {
-        return <BlogCard blog={v} key={i} />;
-      })}
+        {blogs.map((v, i) => {
+          return <BlogCard blog={v} key={i} />;
+        })}
       </div>
     </div>
   );

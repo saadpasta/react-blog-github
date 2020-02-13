@@ -7,6 +7,7 @@ import readingTime from "reading-time";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import "./BlogPost.css";
+import { config } from "../../config";
 import { GithubCounter, GithubSelector } from "react-reactions";
 import GithubReactionTextCard from "../../Components/GithubReactionTextCard/GithubReactionTextCard";
 
@@ -26,7 +27,7 @@ export default function BlogHome() {
       request: operation => {
         operation.setContext({
           headers: {
-            authorization: `Bearer ${atob("ODM5ODY0MWRmYzUxOTcyZTdhMWMxM2NmZGIwNWU4Yzc3NmI5NTg0ZQ==")}`
+            authorization: `Bearer ${atob(config.githubConvertedToken)}`
           }
         });
       }
@@ -36,7 +37,7 @@ export default function BlogHome() {
       .query({
         query: gql`
           {
-            repository(owner: "saadpasta", name: "react-blog-github") {
+            repository(owner: "${config.githubUserName}", name: "${config.githubRepo}") {
               issue(number: ${issueNumber}) {
                 title
                 body
