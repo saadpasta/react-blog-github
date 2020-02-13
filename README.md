@@ -121,7 +121,26 @@ $ npm start
 
 --- 
 
+## 🛠️ Technologies used 
+This project is only possible thanks to the awesomeness of the following projects:
 
-## :pencil2: Contributing
+- [React](https://reactjs.org/)
+- [graphql](https://graphql.org/) 
+- [apollo-boost](https://www.apollographql.com/docs/react/get-started/) 
+- [GitHub](https://github.com)
+- [markdown-to-jsx](https://probablyup.com/markdown-to-jsx/)
+- [React Syntax Highlighter](https://github.com/conorhastings/react-syntax-highlighter)
+- [react-reactions](https://casesandberg.github.io/react-reactions/)
+
+
+## :seedling: Inspiration
+This project is inspired from many other similar projects. 
+
+- [gatsby-theme-blog-with-github](https://github.com/mddanishyusuf/gatsby-theme-blog-with-github)
+- [utterances](https://github.com/utterance/utterances)
+
+
+
+## 🤝Contributing
 
 Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/saadpasta/react-blog-github/issues)! We need all the help we can get to make this project awesome!
