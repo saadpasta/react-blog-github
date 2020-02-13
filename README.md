@@ -80,15 +80,24 @@ Go to your cloned repository and make the following changes in `/src/config.js`
 ```javascript
 export const config = {
 
-  // Your Github base64 Converted Token  
-  githubConvertedToken: "Your Github converted token",
+  // Your Github Converted Token
+  githubConvertedToken: "Github Converted Token",
 
-  // Your Github UserName
+  //   Your Github User Name
   githubUserName: "saadpasta",
 
-  // Your Github Repo Name Where You Have your issues as Blog
+  //   Your Github Repo Name Where You Have your issues as Blog
 
-  githubRepo: "react-blog-github"
+  githubRepo: "react-blog-github",
+
+  // Your Personal Blog Title 
+
+  title : "Saad Pasta" , 
+
+  // Your Personal Blog Subtitle 
+
+  subtitle : "Front End Developer Blog"
+  
 };
 
 ```
