@@ -38,7 +38,7 @@ Github [Issues / Blogs](https://github.com/saadpasta/react-blog-github/issues)
 --- 
 
 ## 🚀 Get Up and Running in 5 Minutes
-You can get a react-blog site up and running on your local dev environment in 5 minutes with these four steps:
+You can get a react-blog site up and running on your local dev environment in 5 minutes with these five steps:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -74,7 +74,7 @@ After that copy your genrated token and then encode your token into base 64 usin
 `Copy your base64 converted token`
 
 
-### 2. **Change `/src/config.js`.**
+### 3. **Change `/src/config.js`.**
 Go to your cloned repository and make the following changes in `/src/config.js`
 
 ```javascript
@@ -102,7 +102,7 @@ export const config = {
 
 ```
 
-### 3. **Write A Blog.**
+### 4. **Write A Blog.**
 After doing following changes now you just need to write a blog on repository issues that you have mentioned in your `config.js`
 
 - Open your repository [github issues](https://github.com/saadpasta/react-blog-github/issues)
@@ -110,7 +110,7 @@ After doing following changes now you just need to write a blog on repository is
 - Now write your blog in github issue in markdown. You can also use [slack edit](https://stackedit.io/app#) to write your markdown
 - Add a label `blog` on your github issue to make it different from other standard issues. Keep in mind `blog` label is mandatory otherwise it won't show on your website.
 
-### 4. **Start Your React App.**
+### 5. **Start Your React App.**
 That's it now you just need to start your react application From your command line run . 
 
 ```bash
@@ -141,6 +141,6 @@ This project is inspired from many other similar projects.
 
 
 
-## 🤝Contributing
+## 🤝 Contributing
 
-Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/saadpasta/react-blog-github/issues)! We need all the help we can get to make this project awesome!
+Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/saadpasta/react-blog-github/issues)!  We need all the help we can get to make this project awesome!
