@@ -156,10 +156,8 @@ Any idea on how we can make this more awesome ? [Open a new issue](https://githu
 - Add Loader
 - Authentication using Github
 - Seo using React helmet
-
-
-
-
+- Footer 
+- Header
 
 
 ## 📄 License 
