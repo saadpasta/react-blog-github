@@ -144,3 +144,8 @@ This project is inspired from many other similar projects.
 ## 🤝 Contributing
 
 Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/saadpasta/react-blog-github/issues)!  We need all the help we can get to make this project awesome!
+
+
+## 📄 License 
+
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details
