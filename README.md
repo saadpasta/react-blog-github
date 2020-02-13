@@ -145,6 +145,16 @@ This project is inspired from many other similar projects.
 
 Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/saadpasta/react-blog-github/issues)!  We need all the help we can get to make this project awesome!
 
+## :boom: Todo
+- Add Comment From Github
+- Add Loader
+- Authentication using Github
+- Seo using React helmet
+
+
+
+
+
 
 ## 📄 License 
 
