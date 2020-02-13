@@ -30,7 +30,7 @@
 :white_check_mark: Images \
 :white_check_mark: Minutes Read \
 :white_check_mark: Beautiful UI Like Medium \
-:white_check_mark: Easy deployment: Using Github Issues \
+:white_check_mark: Easy deployment: Using Github Pages \
 :white_check_mark: Beautiful blockquote   
 
 
