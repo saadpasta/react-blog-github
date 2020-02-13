@@ -110,6 +110,8 @@ $ npm start
 
 ```
 
+--- 
+
 
 ## :pencil2: Contributing
 
