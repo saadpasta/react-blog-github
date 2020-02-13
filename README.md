@@ -1,4 +1,30 @@
-# React Blog Using Github Issues 📝 ![GitHub](https://img.shields.io/github/license/saadpasta/react-blog-github?color=blue)
+<h1 align="center">
+  React Blog 
+</h1>
 
-## React + Github Issues 👉 Your Personal Blog 🔥 
-## Setup your very own blog in Less then 10 min 🤯
+<h2 align="center">
+  React + Github Issues 👉 Your Personal Blog 🔥 
+</h2>
+
+<p align="center">
+  React Blog is a personal blog system build on React that helps you create your own personal blog using Github Issues  
+</p>
+
+
+## :fire: Features
+
+- Own your content
+- Write using Markdown On Github Issues
+- Syntax/Code Highlighting
+- Fully customizable
+- Tags / Topics 
+- Links
+- Images 
+- Block qoute 
+- Minutes Read
+- Beautiful UI Like Medium
+- Easy deployment: Using Github Issues
+
+
+## 🚀 Get Up and Running in 5 Minutes
+You can get a react-blog site up and running on your local dev environment in 5 minutes with these four steps:
