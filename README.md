@@ -12,7 +12,7 @@
 
 <p align="center"> 
   <kbd>
-<img src="src/video.gif"></img>
+<img src="src/logo.png"></img>
   </kbd>
 </p>
 
