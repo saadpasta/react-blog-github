@@ -31,6 +31,7 @@
 :white_check_mark: Minutes Read \
 :white_check_mark: Beautiful UI Like Medium \
 :white_check_mark: Easy deployment: Using Github Pages \
+:white_check_mark: Instant Effects on Blog when changing github issues \
 :white_check_mark: Beautiful blockquote   
 
 
