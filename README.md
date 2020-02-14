@@ -158,6 +158,7 @@ Any idea on how we can make this more awesome ? [Open a new issue](https://githu
 - Seo using React helmet
 - Footer 
 - Header
+- Social Media Sharing
 
 
 ## 📄 License 
