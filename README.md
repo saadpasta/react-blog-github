@@ -43,8 +43,8 @@ Github [Issues / Blogs](https://github.com/saadpasta/react-blog-github/issues)
 
 --- 
 
-## 🚀 Get Up and Running in 5 Minutes
-You can get a react-blog site up and running on your local dev environment in 5 minutes with these five steps:
+## 🚀 Get Up and Running in 10 Minutes
+You can get a react-blog site up and running on your local dev environment in 10 minutes with these five steps:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
