@@ -72,11 +72,11 @@ $ npm install
 
 ```
 
-### 2. **Genrate a Github Personal Access Token.**
+### 2. **Generate a Github Personal Access Token.**
 
-Genrate a Github personal access token using these [Instructions](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) `Make sure you don't select any scope just generate a simple token without any scope`
+Generate a Github personal access token using these [Instructions](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) `Make sure you don't select any scope just generate a simple token without any scope`
 
-After that copy your genrated token and then encode your token into base 64 using this [Website](http://www.utilities-online.info/base64/)
+After that copy your generated token and then encode your token into base 64 using this [Website](http://www.utilities-online.info/base64/)
 
 `Copy your base64 converted token`
 
