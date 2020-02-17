@@ -1,4 +1,7 @@
 <h1 align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   React Blog 
 </h1>
 
@@ -175,6 +178,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
+    <td align="center"><a href="http://github.com/MuhammadHammad"><img src="https://avatars0.githubusercontent.com/u/37264033?v=4" width="100px;" alt=""/><br /><sub><b>SyedMuhammadHammadGhani</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=Muhammad-Hammad" title="Documentation">📖</a></td>
     <td align="center"><a href="http://saadpasta.github.io"><img src="https://avatars2.githubusercontent.com/u/23307811?v=4" width="100px;" alt=""/><br /><sub><b>Saad Pasta</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=saadpasta" title="Code">💻</a> <a href="https://github.com/saadpasta/react-blog-github/commits?author=saadpasta" title="Documentation">📖</a> <a href="#design-saadpasta" title="Design">🎨</a> <a href="#maintenance-saadpasta" title="Maintenance">🚧</a></td>
   </tr>
 </table>
