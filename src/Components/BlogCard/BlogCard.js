@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./BlogCard.css";
 import readingTime from "reading-time";
 import { useHistory } from "react-router-dom";
-import { get } from "https";
+
+import "./BlogCard.css";
+
 
 export default function BlogCard({ blog }) {
   const [lables, setLables] = useState([]);
@@ -10,19 +11,20 @@ export default function BlogCard({ blog }) {
   let history = useHistory();
 
   useEffect(() => {
-    getLabels();
-  }, []);
+    getLabels(blog.labels.nodes);
+  }, [blog.labels.nodes]);
 
   function openBlog(title, number) {
     history.push(`/blog/${title}/${number}`);
   }
 
-  function getLabels() {
-    const lables = blog.labels.nodes.filter((value, index) => {
-      return value.name != "blog";
+  function getLabels(nodes) {
+    const lables = nodes.filter((value) => {
+      return value.name !== "blog";
     });
     setLables(lables);
   }
+
   return (
     <div className="blog-card-div">
       <div className="blog-card-header">

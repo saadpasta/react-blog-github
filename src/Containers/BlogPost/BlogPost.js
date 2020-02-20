@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
 import moment from "moment";
@@ -6,9 +6,10 @@ import Markdown from "markdown-to-jsx";
 import readingTime from "reading-time";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { GithubCounter } from "react-reactions";
+
 import "./BlogPost.css";
 import { config } from "../../config";
-import { GithubCounter, GithubSelector } from "react-reactions";
 import GithubReactionTextCard from "../../Components/GithubReactionTextCard/GithubReactionTextCard";
 
 export default function BlogHome() {
@@ -17,11 +18,61 @@ export default function BlogHome() {
   const [reactionCounter, setReactionCounter] = useState([]);
   const issueNumber = parseInt(window.location.href.split("/").pop());
 
-  useEffect(() => {
-    getBlogsFromGithubIssues();
+  const getEmojiStringByName = useCallback((emojiName) => {
+    switch (emojiName) {
+      case "THUMBS_UP":
+        return "👍";
+
+      case "THUMBS_DOWN":
+        return "👎";
+
+      case "LAUGH":
+        return "😄";
+
+      case "HOORAY":
+        return "🎉";
+
+      case "CONFUSED":
+        return "😕";
+
+      case "HEART":
+        return "❤️";
+
+      case "ROCKET":
+        return "🚀";
+
+      case "EYES":
+        return "👀";
+
+      default:
+        return "";
+    }
   }, []);
 
-  function getBlogsFromGithubIssues() {
+  const setReactionFun = useCallback((reactions) => {
+    // {
+    //   emoji: "👍", // String emoji reaction
+    //   by: "case" // String of persons name
+    // }
+
+    let reactions_array = [];
+    reactions.forEach(element => {
+      let obj = {
+        by: element.user.login,
+        emoji: getEmojiStringByName(element.content)
+      };
+      reactions_array.push(obj);
+    });
+
+    setReactionCounter(reactions_array);
+  }, [getEmojiStringByName]);
+
+  const setBlogsFunction = useCallback((array) => {
+    setBlogs(array);
+    setReactionFun(array.reactions.nodes);
+  }, [setReactionFun]);
+
+  const getBlogsFromGithubIssues = useCallback(() => {
     const client = new ApolloClient({
       uri: "https://api.github.com/graphql",
       request: operation => {
@@ -73,64 +124,15 @@ export default function BlogHome() {
       .catch(err => {
         console.error(err);
       });
-  }
+  }, [issueNumber, setBlogsFunction]);
 
-  function setBlogsFunction(array) {
-    setBlogs(array);
-    setReactionFun(array.reactions.nodes);
-  }
 
-  function setReactionFun(reactions) {
-    // {
-    //   emoji: "👍", // String emoji reaction
-    //   by: "case" // String of persons name
-    // }
+  useEffect(() => {
+    getBlogsFromGithubIssues();
+  }, [getBlogsFromGithubIssues]);
 
-    let reactions_array = [];
-    reactions.forEach(element => {
-      let obj = {
-        by: element.user.login,
-        emoji: getEmojiStringByName(element.content)
-      };
-      reactions_array.push(obj);
-    });
-
-    setReactionCounter(reactions_array);
-  }
-
-  function getEmojiStringByName(emojiName) {
-    switch (emojiName) {
-      case "THUMBS_UP":
-        return "👍";
-
-      case "THUMBS_DOWN":
-        return "👎";
-
-      case "LAUGH":
-        return "😄";
-
-      case "HOORAY":
-        return "🎉";
-
-      case "CONFUSED":
-        return "😕";
-
-      case "HEART":
-        return "❤️";
-
-      case "ROCKET":
-        return "🚀";
-
-      case "EYES":
-        return "👀";
-    }
-  }
-
-  function createMarkup() {
-    return { __html: blog.bodyHTML };
-  }
   const HyperLink = ({ children, ...props }) => (
-    <a href={props.href} target="_blank" className="blog-post-anchor">
+    <a href={props.href} target="_blank" rel="noopener noreferrer" className="blog-post-anchor">
       {children}
       <style jsx>
         {`
@@ -156,9 +158,7 @@ export default function BlogHome() {
   function githubCounterAddReaction() {
     setAddreaction(!addReaction);
   }
-  function onEmojiSelect(emoji) {
-    console.log(emoji);
-  }
+
   return (
     <div>
       {blog.title && (
@@ -166,7 +166,7 @@ export default function BlogHome() {
           <h1 className="blog-title">{blog.title}</h1>
           <div>
             <div className="author-details">
-              <img class="avatar" src={blog.author.avatarUrl}></img>
+              <img className="avatar" src={blog.author.avatarUrl} alt={blog.author.login} />
               <div>
                 <p className="author-name">{blog.author.login}</p>
                 <p className="blog-date">

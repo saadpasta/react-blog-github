@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
-import BlogHome from "../BlogPost/BlogPost";
+
 import Header from "../../Components/Header/Header";
 import BlogCard from "../../Components/BlogCard/BlogCard";
 import { config } from "../../config";
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    getBlogsFromGithubIssues();
-  }, []);
-
-  function getBlogsFromGithubIssues() {
+  const getBlogsFromGithubIssues = useCallback(() => {
     const client = new ApolloClient({
       uri: "https://api.github.com/graphql",
       request: operation => {
@@ -60,7 +55,11 @@ function Blogs() {
       .then(result => {
         setBlogsFunction(result.data.repository.issues.nodes);
       });
-  }
+  }, []);
+
+  useEffect(() => {
+    getBlogsFromGithubIssues();
+  }, [getBlogsFromGithubIssues]);
 
   function setBlogsFunction(array) {
     setBlogs(array);
