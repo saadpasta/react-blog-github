@@ -1,6 +1,6 @@
 export const config = {
   // Your Github Converted Token To Know How To Get Your Token Look at Readme.md
-  githubConvertedToken: "Your Github Converted Token",
+  githubConvertedToken: "ODM5ODY0MWRmYzUxOTcyZTdhMWMxM2NmZGIwNWU4Yzc3NmI5NTg0ZQ==",
 
   //   Your Github UserName
   githubUserName: "saadpasta",
