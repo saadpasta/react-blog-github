@@ -11,9 +11,9 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/37264033?v=4",
       "profile": "http://github.com/MuhammadHammad",
       "contributions": [
-        "doc" ] 
-        },
-
+        "doc"
+      ]
+    },
     {
       "login": "saadpasta",
       "name": "Saad Pasta",
@@ -24,6 +24,16 @@
         "doc",
         "design",
         "maintenance"
+      ]
+    },
+    {
+      "login": "jvm-odoo",
+      "name": "Jason Van Malder",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/9156538?v=4",
+      "profile": "https://github.com/jvm-odoo",
+      "contributions": [
+        "code",
+        "infra"
       ]
     }
   ],
