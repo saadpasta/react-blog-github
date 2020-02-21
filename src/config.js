@@ -4,17 +4,13 @@ export const config = {
 
   //   Your Github UserName
   githubUserName: "saadpasta",
-
   //   Your Github Repo Name Where You Have your issues as Blog
 
   githubRepo: "react-blog-github",
 
-  // Your Personal Blog Title 
+  // Your Personal Blog Title
+  title : "Saad Pasta" ,
 
-  title : "Saad Pasta" , 
-
-  // Your Personal Blog Subtitle 
-
+  // Your Personal Blog Subtitle
   subtitle : "Front End Developer Blog"
-  
 };
