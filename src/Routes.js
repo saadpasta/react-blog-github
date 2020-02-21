@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import Blogs from "./Containers/Blogs/Blogs"
 import BlogHome from "./Containers/BlogPost/BlogPost";
