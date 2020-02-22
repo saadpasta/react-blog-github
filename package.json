@@ -17,11 +17,15 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
+    "react-hook-form": "^4.9.8",
+    "react-particles-webgl": "^1.0.10",
     "react-reactions": "github:randomdipesh/react-reactions",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-syntax-highlighter": "^12.2.1",
-    "reading-time": "^1.2.0"
+    "react-textarea-autosize": "^7.1.2",
+    "reading-time": "^1.2.0",
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",

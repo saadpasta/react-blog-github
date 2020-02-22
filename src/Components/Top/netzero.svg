@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="252.698" height="123.213" viewBox="0 0 252.698 123.213">
+  <g id="Group_9" data-name="Group 9" transform="translate(-4316.651 5026.463)">
+    <g id="Group_8" data-name="Group 8" transform="translate(14)">
+      <line id="Line_32" data-name="Line 32" x2="41.769" transform="translate(4363.198 -4960.907) rotate(30)" fill="none" stroke="#afafaf" stroke-width="8"/>
+      <line id="Line_33" data-name="Line 33" x2="22" transform="translate(4363.198 -4960.907) rotate(30)" fill="none" stroke="#77126e" stroke-width="8"/>
+      <line id="Line_34" data-name="Line 34" x2="41.769" transform="translate(4373.698 -4979.093) rotate(30)" fill="none" stroke="#afafaf" stroke-width="8"/>
+      <line id="Line_35" data-name="Line 35" x2="22" transform="translate(4373.698 -4979.093) rotate(30)" fill="none" stroke="#77126e" stroke-width="8"/>
+      <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(4334.651 -5026.463) rotate(30)" fill="#77126e" stroke="#e4e4e4" stroke-width="3">
+        <circle cx="32" cy="32" r="32" stroke="none"/>
+        <circle cx="32" cy="32" r="30.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_7" data-name="Group 7">
+      <line id="Line_32-2" data-name="Line 32" x2="41.769" transform="translate(4498.303 -4979.093) rotate(150)" fill="none" stroke="#afafaf" stroke-width="8"/>
+      <line id="Line_33-2" data-name="Line 33" x2="22" transform="translate(4498.303 -4979.093) rotate(150)" fill="none" stroke="#77126e" stroke-width="8"/>
+      <line id="Line_34-2" data-name="Line 34" x2="41.769" transform="translate(4508.803 -4960.907) rotate(150)" fill="none" stroke="#afafaf" stroke-width="8"/>
+      <line id="Line_35-2" data-name="Line 35" x2="22" transform="translate(4508.803 -4960.907) rotate(150)" fill="none" stroke="#77126e" stroke-width="8"/>
+      <g id="Ellipse_15-2" data-name="Ellipse 15" transform="translate(4569.349 -4971.037) rotate(150)" fill="#77126e" stroke="#e4e4e4" stroke-width="3">
+        <circle cx="32" cy="32" r="32" stroke="none"/>
+        <circle cx="32" cy="32" r="30.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Ellipse_12" data-name="Ellipse 12" transform="translate(4411.364 -4967.25)" fill="#afafaf" stroke="#e4e4e4" stroke-width="3">
+      <circle cx="32" cy="32" r="32" stroke="none"/>
+      <circle cx="32" cy="32" r="30.5" fill="none"/>
+    </g>
+  </g>
+</svg>

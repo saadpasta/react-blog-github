@@ -18,7 +18,7 @@ export default function BlogHome() {
   const [reactionCounter, setReactionCounter] = useState([]);
   const issueNumber = parseInt(window.location.href.split("/").pop());
 
-  const getEmojiStringByName = useCallback((emojiName) => {
+  const getEmojiStringByName = useCallback(emojiName => {
     switch (emojiName) {
       case "THUMBS_UP":
         return "👍";
@@ -49,28 +49,34 @@ export default function BlogHome() {
     }
   }, []);
 
-  const setReactionFun = useCallback((reactions) => {
-    // {
-    //   emoji: "👍", // String emoji reaction
-    //   by: "case" // String of persons name
-    // }
+  const setReactionFun = useCallback(
+    reactions => {
+      // {
+      //   emoji: "👍", // String emoji reaction
+      //   by: "case" // String of persons name
+      // }
 
-    let reactions_array = [];
-    reactions.forEach(element => {
-      let obj = {
-        by: element.user.login,
-        emoji: getEmojiStringByName(element.content)
-      };
-      reactions_array.push(obj);
-    });
+      let reactions_array = [];
+      reactions.forEach(element => {
+        let obj = {
+          by: element.user.login,
+          emoji: getEmojiStringByName(element.content)
+        };
+        reactions_array.push(obj);
+      });
 
-    setReactionCounter(reactions_array);
-  }, [getEmojiStringByName]);
+      setReactionCounter(reactions_array);
+    },
+    [getEmojiStringByName]
+  );
 
-  const setBlogsFunction = useCallback((array) => {
-    setBlogs(array);
-    setReactionFun(array.reactions.nodes);
-  }, [setReactionFun]);
+  const setBlogsFunction = useCallback(
+    array => {
+      setBlogs(array);
+      setReactionFun(array.reactions.nodes);
+    },
+    [setReactionFun]
+  );
 
   const getBlogsFromGithubIssues = useCallback(() => {
     const client = new ApolloClient({
@@ -126,13 +132,17 @@ export default function BlogHome() {
       });
   }, [issueNumber, setBlogsFunction]);
 
-
   useEffect(() => {
     getBlogsFromGithubIssues();
   }, [getBlogsFromGithubIssues]);
 
   const HyperLink = ({ children, ...props }) => (
-    <a href={props.href} target="_blank" rel="noopener noreferrer" className="blog-post-anchor">
+    <a
+      href={props.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="blog-post-anchor"
+    >
       {children}
       <style jsx>
         {`
@@ -166,11 +176,19 @@ export default function BlogHome() {
           <h1 className="blog-title">{blog.title}</h1>
           <div>
             <div className="author-details">
-              <img className="avatar" src={blog.author.avatarUrl} alt={blog.author.login} />
+              <img
+                className="avatar"
+                src={blog.author.avatarUrl}
+                alt={blog.author.login}
+              />
               <div>
                 <p className="author-name">{blog.author.login}</p>
                 <p className="blog-date">
-                  {moment(blog.updatedAt).format("DD MMM YYYY")} . {readingTime(blog.body).minutes} Min Read . <a href={blog.url} target="_black">View On Github</a>
+                  {moment(blog.updatedAt).format("DD MMM YYYY")} .{" "}
+                  {readingTime(blog.body).minutes} Min Read .{" "}
+                  <a href={blog.url} target="_black">
+                    View On Github
+                  </a>
                 </p>
               </div>
             </div>
@@ -192,10 +210,10 @@ export default function BlogHome() {
           {addReaction && (
             <span className="reaction-github-emoji anim-scale-in">
               {/* <GithubSelector onSelect={emoji => onEmojiSelect(emoji)} /> */}
-              <GithubReactionTextCard link={blog.url}/>
+              <GithubReactionTextCard link={blog.url} />
             </span>
           )}
-          <GithubCounter counters={reactionCounter} onSelect={emoji => githubCounterEmojiSelect(emoji)} onAdd={() => githubCounterAddReaction()} />
+          {/* <GithubCounter counters={reactionCounter} onSelect={emoji => githubCounterEmojiSelect(emoji)} onAdd={() => githubCounterAddReaction()} /> */}
         </div>
       )}
     </div>
