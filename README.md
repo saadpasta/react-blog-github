@@ -86,27 +86,28 @@ Go to your cloned repository and make the following changes in `/src/config.js`
 
 ```javascript
 export const config = {
+  // Your Github Converted Token To Know How To Get Your Token Look at Readme.md
+  githubConvertedToken: "Your token here",
 
-  // Your Github Converted Token
-  githubConvertedToken: "Github Converted Token",
+  // Your Github UserName
+  githubUserName: "Your username here",
 
-  //   Your Github User Name
-  githubUserName: "saadpasta",
+  // Your Github Repo Name Where You Have your issues as Blog
+  githubRepo: "Your repo's name here",
 
-  //   Your Github Repo Name Where You Have your issues as Blog
+  // Your Personal Blog Title
+  title : "Title of your blog" ,
 
-  githubRepo: "react-blog-github",
+  // Your Personal Blog Subtitle
+  subtitle : "Subtitle of your blog",
 
-  // Your Personal Blog Title 
-
-  title : "Saad Pasta" , 
-
-  // Your Personal Blog Subtitle 
-
-  subtitle : "Front End Developer Blog"
-  
+  // Header customization
+  header: {
+    backgroundColor: '#f1f6f8', // can be a CSS gradient
+    titleColor: '#ff5252',
+    subtitleColor: '#37474f',
+  },
 };
-
 ```
 
 ### 4. **Write A Blog.**
@@ -154,9 +155,7 @@ Any idea on how we can make this more awesome ? [Open a new issue](https://githu
 
 ## :boom: Todo
 - Add Comment From Github
-- Add Loader
 - Authentication using Github
-- Seo using React helmet
 - Footer 
 - Header
 - Social Media Sharing
@@ -178,6 +177,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://github.com/MuhammadHammad"><img src="https://avatars0.githubusercontent.com/u/37264033?v=4" width="100px;" alt=""/><br /><sub><b>SyedMuhammadHammadGhani</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=Muhammad-Hammad" title="Documentation">📖</a></td>
     <td align="center"><a href="http://saadpasta.github.io"><img src="https://avatars2.githubusercontent.com/u/23307811?v=4" width="100px;" alt=""/><br /><sub><b>Saad Pasta</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=saadpasta" title="Code">💻</a> <a href="https://github.com/saadpasta/react-blog-github/commits?author=saadpasta" title="Documentation">📖</a> <a href="#design-saadpasta" title="Design">🎨</a> <a href="#maintenance-saadpasta" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://github.com/jvm-odoo"><img src="https://avatars0.githubusercontent.com/u/9156538?v=4" width="100px;" alt=""/><br /><sub><b>Jason Van Malder</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=jvm-odoo" title="Code">💻</a> <a href="#infra-jvm-odoo" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/viveksharmaui"><img src="https://avatars1.githubusercontent.com/u/28563357?v=4" width="100px;" alt=""/><br /><sub><b>Slim Coder</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=viveksharmaui" title="Code">💻</a></td>
   </tr>
 </table>
 
