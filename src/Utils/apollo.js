@@ -12,3 +12,14 @@ export const client = new ApolloClient({
     });
   }
 });
+
+export const userClient = (token) => new ApolloClient({
+  uri: "https://api.github.com/graphql",
+  request: operation => {
+    operation.setContext({
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
+  }
+});

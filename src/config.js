@@ -8,6 +8,12 @@ export const config = {
   // Your Github Repo Name Where You Have your issues as Blog
   githubRepo: "react-blog-github",
 
+  // Set it to true if you have a Github app to add to this project
+  // and fill the client ID & secret
+  enableOAuth: true,
+  OAuthClientID: 'Github App Client ID',
+  OAuthSecret: 'Github App Secret',
+
   // Your Personal Blog Title
   title : "Saad Pasta" ,
 

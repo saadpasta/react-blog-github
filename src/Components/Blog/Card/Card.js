@@ -39,8 +39,8 @@ export const Card = ({ blog }) => {
         </>
         <CardReadingTime time={readingTime(blog.body).minutes} />
       </CardHeader>
-      <div>
-        <CardTitle onClick={() => openBlog(blog.title, blog.number)}>{blog.title}</CardTitle>
+      <div onClick={() => openBlog(blog.title, blog.number)}>
+        <CardTitle>{blog.title}</CardTitle>
         <CardDescription>
           {blog.bodyText}
         </CardDescription>
