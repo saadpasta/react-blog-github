@@ -80,8 +80,18 @@ After that copy your generated token and then encode your token into base 64 usi
 
 `Copy your base64 converted token`
 
+### 3. Create a GitHub App
 
-### 3. **Change `/src/config.js`.**
+Go on the following URL: https://github.com/settings/apps/new
+
+There are a few fields to fill carefully:
+- Homepage URL: https://your_username.github.io/react-blog-github/
+- Callback URL: https://your_username.github.io/react-blog-github/
+- Check "Request user authorization (OAuth) during installation"
+
+In permissions & events, set `Read & Write` on Issues
+
+### 4. **Change `/src/config.js`.**
 Go to your cloned repository and make the following changes in `/src/config.js`
 
 ```javascript
@@ -94,6 +104,12 @@ export const config = {
 
   // Your Github Repo Name Where You Have your issues as Blog
   githubRepo: "Your repo's name here",
+
+  // Set it to true if you have a Github app to add to this project
+  // and fill the client ID & secret
+  enableOAuth: true,
+  OAuthClientID: 'Github App Client ID',
+  OAuthSecret: 'Github App Secret',
 
   // Your Personal Blog Title
   title : "Title of your blog" ,
@@ -110,7 +126,7 @@ export const config = {
 };
 ```
 
-### 4. **Write A Blog.**
+### 5. **Write A Blog.**
 After doing following changes now you just need to write a blog on repository issues that you have mentioned in your `config.js`
 
 - Open your repository [github issues](https://github.com/saadpasta/react-blog-github/issues)
@@ -118,7 +134,7 @@ After doing following changes now you just need to write a blog on repository is
 - Now write your blog in github issue in markdown. You can also use [slack edit](https://stackedit.io/app#) to write your markdown
 - Add a label `blog` on your github issue to make it different from other standard issues. Keep in mind `blog` label is mandatory otherwise it won't show on your website.
 
-### 5. **Start Your React App.**
+### 6. **Start Your React App.**
 That's it now you just need to start your react application From your command line run . 
 
 ```bash
