@@ -7,27 +7,15 @@ import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { GithubSelector, GithubCounter } from "react-reactions";
 import { userClient } from '../Utils/apollo'
 import { gql } from "apollo-boost";
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from "@apollo/react-hooks";
 
 import { config } from "../config";
 import { getEmojiByName, getNameByEmoji } from '../Utils/emoji';
 import { getAuthenticatedUser } from '../Utils/auth'
-import { Loader } from '../Components/Common'
-import {
-  PostContainer,
-  PostTitle,
-  PostDate,
-  PostDateLink,
-  PostReaction,
-} from '../Components/Post'
-import {
-  AuthorDetails,
-  AuthorAvatar,
-  AuthorName,
-} from '../Components/Post/Author'
-import {
-  GithubLogin
-} from '../Components/Header'
+import { Loader } from "../Components/Common";
+import { PostContainer, PostTitle, PostDate, PostDateLink, PostReaction, BackButton } from "../Components/Post";
+import { AuthorDetails, AuthorAvatar, AuthorName } from "../Components/Post/Author";
+import { GithubLogin } from '../Components/Header'
 
 export default function BlogHome() {
   const issueNumber = parseInt(window.location.href.split("/").pop());
@@ -59,8 +47,8 @@ export default function BlogHome() {
         id
       }
     }
-  }`
-
+  }
+  `;
   const [post, setPost] = useState([]);
   const [postNodeId, setPostNodeId] = useState('');
   const [reactionPopup, setReactionPopup] = useState(false);
@@ -167,13 +155,22 @@ export default function BlogHome() {
   }, [loading, error, data, setReactionFun]);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
+
+  const onBackClick = () => {
+    // ifthe previous page does not exist in the history list. this method to load the previous (or next) URL in the history list.
+    window.history.go();
+    // The back() method loads the previous URL in the history list.
+    window.history.back();
+  };
 
   return (
     <>
       {post.title && (
         <PostContainer>
+          <BackButton onClick={() => onBackClick()}>Back</BackButton>
+
           <PostTitle>{post.title}</PostTitle>
           <div>
             <AuthorDetails>
@@ -181,9 +178,10 @@ export default function BlogHome() {
               <div>
                 <AuthorName>{post.author.login}</AuthorName>
                 <PostDate>
-                  {moment(post.updatedAt).format("DD MMM YYYY")} . 
-                  {readingTime(post.body).minutes} Min Read . 
-                  <PostDateLink href={post.url} target="_black">View On Github</PostDateLink>
+                  {moment(post.updatedAt).format("DD MMM YYYY")} .{readingTime(post.body).minutes} Min Read .
+                  <PostDateLink href={post.url} target="_black">
+                    View On Github
+                  </PostDateLink>
                 </PostDate>
               </div>
             </AuthorDetails>
