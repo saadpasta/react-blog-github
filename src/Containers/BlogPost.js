@@ -6,23 +6,13 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { GithubCounter } from "react-reactions";
 import { gql } from "apollo-boost";
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from "@apollo/react-hooks";
 
 import { config } from "../config";
 import { ReactionCard } from "../Components/Post/ReactionCard";
-import { Loader } from '../Components/Common'
-import {
-  PostContainer,
-  PostTitle,
-  PostDate,
-  PostDateLink,
-  PostReaction,
-} from '../Components/Post'
-import {
-  AuthorDetails,
-  AuthorAvatar,
-  AuthorName,
-} from '../Components/Post/Author'
+import { Loader } from "../Components/Common";
+import { PostContainer, PostTitle, PostDate, PostDateLink, PostReaction, BackButton } from "../Components/Post";
+import { AuthorDetails, AuthorAvatar, AuthorName } from "../Components/Post/Author";
 
 export default function BlogHome() {
   const issueNumber = parseInt(window.location.href.split("/").pop());
@@ -56,13 +46,13 @@ export default function BlogHome() {
       }
     }
   }
-  `
+  `;
   const [post, setPost] = useState([]);
   const [addReaction, setAddReaction] = useState(false);
   const [reactionCounter, setReactionCounter] = useState([]);
   const { loading, error, data } = useQuery(GET_POSTS);
 
-  const getEmojiStringByName = useCallback((emojiName) => {
+  const getEmojiStringByName = useCallback(emojiName => {
     switch (emojiName) {
       case "THUMBS_UP":
         return "👍";
@@ -93,23 +83,26 @@ export default function BlogHome() {
     }
   }, []);
 
-  const setReactionFun = useCallback((reactions) => {
-    // {
-    //   emoji: "👍", // String emoji reaction
-    //   by: "case" // String of persons name
-    // }
+  const setReactionFun = useCallback(
+    reactions => {
+      // {
+      //   emoji: "👍", // String emoji reaction
+      //   by: "case" // String of persons name
+      // }
 
-    let reactions_array = [];
-    reactions.forEach(element => {
-      let obj = {
-        by: element.user.login,
-        emoji: getEmojiStringByName(element.content)
-      };
-      reactions_array.push(obj);
-    });
+      let reactions_array = [];
+      reactions.forEach(element => {
+        let obj = {
+          by: element.user.login,
+          emoji: getEmojiStringByName(element.content)
+        };
+        reactions_array.push(obj);
+      });
 
-    setReactionCounter(reactions_array);
-  }, [getEmojiStringByName]);
+      setReactionCounter(reactions_array);
+    },
+    [getEmojiStringByName]
+  );
 
   const HyperLink = ({ children, ...props }) => (
     <a href={props.href} target="_blank" rel="noopener noreferrer" className="blog-post-anchor">
@@ -131,22 +124,22 @@ export default function BlogHome() {
     </SyntaxHighlighter>
   );
 
-  const githubCounterEmojiSelect = (emoji) => {
+  const githubCounterEmojiSelect = emoji => {
     console.log(emoji);
-  }
+  };
 
   const githubCounterAddReaction = () => {
     setAddReaction(!addReaction);
-  }
+  };
 
   useEffect(() => {
     if (!loading) {
       if (error) {
-        console.error(error)
+        console.error(error);
       }
 
       if (data) {
-        const issues = data.repository.issue
+        const issues = data.repository.issue;
         setPost(issues);
         setReactionFun(issues.reactions.nodes);
       }
@@ -154,13 +147,19 @@ export default function BlogHome() {
   }, [loading, error, data, setReactionFun]);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
+
+  const onBackClick = () => {
+    window.location.replace(document.referrer);
+  };
 
   return (
     <>
       {post.title && (
         <PostContainer>
+          <BackButton onClick={() => onBackClick()}>Back</BackButton>
+
           <PostTitle>{post.title}</PostTitle>
           <div>
             <AuthorDetails>
@@ -168,9 +167,10 @@ export default function BlogHome() {
               <div>
                 <AuthorName>{post.author.login}</AuthorName>
                 <PostDate>
-                  {moment(post.updatedAt).format("DD MMM YYYY")} . 
-                  {readingTime(post.body).minutes} Min Read . 
-                  <PostDateLink href={post.url} target="_black">View On Github</PostDateLink>
+                  {moment(post.updatedAt).format("DD MMM YYYY")} .{readingTime(post.body).minutes} Min Read .
+                  <PostDateLink href={post.url} target="_black">
+                    View On Github
+                  </PostDateLink>
                 </PostDate>
               </div>
             </AuthorDetails>
@@ -192,7 +192,7 @@ export default function BlogHome() {
           {addReaction && (
             <PostReaction>
               {/* <GithubSelector onSelect={emoji => onEmojiSelect(emoji)} /> */}
-              <ReactionCard link={post.url}/>
+              <ReactionCard link={post.url} />
             </PostReaction>
           )}
           <GithubCounter counters={reactionCounter} onSelect={emoji => githubCounterEmojiSelect(emoji)} onAdd={() => githubCounterAddReaction()} />
