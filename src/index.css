@@ -91,31 +91,6 @@ mark,
   background: #7dffb3;
 }
 
-.back-btn {
-  outline: none;
-  border: 1px solid;
-  font-size: 22px;
-  font-family: "Shadows Into Light", serif;
-  border-radius: 5px;
-  padding: 0px 20px 0 30px;
-  cursor: pointer;
-  position: relative;
-}
-
-.back-btn:before {
-  content: "\27A4";
-  position: absolute;
-  transform: translateY(-50%) rotate(180deg);
-  left: 10px;
-  font-size: 16px;
-  top: 54%;
-}
-
-.back-btn:hover {
-  background-color: black;
-  color: white;
-}
-
 .first-letter {
   overflow-wrap: break-word;
   font-family: "Playfair Display", serif;

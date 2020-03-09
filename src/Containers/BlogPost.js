@@ -11,7 +11,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { config } from "../config";
 import { ReactionCard } from "../Components/Post/ReactionCard";
 import { Loader } from "../Components/Common";
-import { PostContainer, PostTitle, PostDate, PostDateLink, PostReaction } from "../Components/Post";
+import { PostContainer, PostTitle, PostDate, PostDateLink, PostReaction, BackButton } from "../Components/Post";
 import { AuthorDetails, AuthorAvatar, AuthorName } from "../Components/Post/Author";
 
 export default function BlogHome() {
@@ -151,16 +151,14 @@ export default function BlogHome() {
   }
 
   const onBackClick = () => {
-    window.location.replace("#/");
+    window.location.replace(document.referrer);
   };
 
   return (
     <>
       {post.title && (
         <PostContainer>
-          <button className="back-btn" onClick={() => onBackClick()}>
-            Back
-          </button>
+          <BackButton onClick={() => onBackClick()}>Back</BackButton>
 
           <PostTitle>{post.title}</PostTitle>
           <div>
