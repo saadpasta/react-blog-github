@@ -4,6 +4,7 @@ import { config } from '../../config'
 const { backgroundColor } = config.header
 
 export const HeaderContainer = styled.div`
+  position: relative;
   padding: 5em;
   text-align: center;
   background: ${backgroundColor};
