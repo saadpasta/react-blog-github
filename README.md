@@ -90,6 +90,7 @@ There are a few fields to fill carefully:
 - Check "Request user authorization (OAuth) during installation"
 
 In permissions & events, set `Read & Write` on Issues
+In "Install App", install the app on your user and select your repository
 
 ### 4. **Change `/src/config.js`.**
 Go to your cloned repository and make the following changes in `/src/config.js`
