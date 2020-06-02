@@ -30,10 +30,10 @@ const Application = () => {
           <meta name="theme-color" content={config.header.backgroundColor} />
       </Helmet>
       <ApolloProvider client={client}>
-        <ThemeProvider theme={themeMode}>
+        <ThemeProvider theme={themeMode} toggleTheme={themeToggler}>
           <GlobalStyles />
-          <Toggle theme={theme} toggleTheme={themeToggler} />
           <Router />
+          <Toggle theme={theme} toggleTheme={themeToggler} />
         </ThemeProvider>
       </ApolloProvider>
     </>

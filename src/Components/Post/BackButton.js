@@ -9,9 +9,11 @@ export const BackButton = styled.button`
   padding: 0px 20px 0 30px;
   cursor: pointer;
   position: relative;
+  background-color: ${ props => props.theme.body };
+  color: ${ props => props.theme.text };
 
   :hover {
-    background-color: black;
+    background-color: ${ props => props.theme.mode === 'light' ? '#373737' : '#6B8096' };
     color: white;
   }
 

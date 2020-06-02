@@ -1,8 +1,8 @@
 export const lightTheme = {
   mode: "light",
-  body: "#ECEFF4",
+  body: "#fff",
   text: "#363537",
-  toggleBorder: "#FFF",
+  toggleBorder: "#070707",
   background: "#363537",
 };
 export const darkTheme = {

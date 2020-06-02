@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PostDate = styled.p`
-  color: rgba(0, 0, 0, 0.54);
+  color: ${ props => props.theme.toggleBorder };
   font-weight: 400;
   font-size: 14px;
   margin-bottom: 0px;

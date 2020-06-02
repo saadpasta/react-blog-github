@@ -6,9 +6,9 @@ export const PostDateLink = styled.a`
   transition-duration: 0.15s, 0.15s, 0.15s;
   transition-timing-function: ease-in, ease-in, ease-in;
   transition-delay: 0s, 0s, 0s;
-  color: rgba(0, 0, 0, 0.54);
-
+  color: ${ props => props.theme.toggleBorder };
+  
   :hover {
-    color: rgba(0, 0, 0, 0.84);
+    color: ${ props => props.theme.text };
   }
 `
