@@ -15,7 +15,6 @@ i,
 a,
 .first-letter,
 .authorName a {
-  color: rgba(0, 0, 0, 0.84);
   text-rendering: optimizeLegibility;
 }
 
@@ -61,7 +60,7 @@ blockquote {
   overflow-wrap: break-word;
   margin: 30px 0 33px 0;
   /* text-align: center; */
-  color: rgba(0, 0, 0, 0.68);
+  /* color: rgba(0, 0, 0, 0.68); */
   padding: 0 0 0 50px;
 }
 

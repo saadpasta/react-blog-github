@@ -9,6 +9,6 @@ export const CardContainer = styled.div`
   position: relative;
 
   :hover {
-    background-color: #F5F5F5;
+    background-color: ${props => props.theme.mode === 'light' ? '#F5F5F5' : '#3B4252'};
   }
 `
