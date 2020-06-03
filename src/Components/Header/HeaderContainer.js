@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 import { config } from '../../config'
-const { backgroundColor } = config.header
+const { backgroundColor, backgroundColorDark } = config.header;
 
 export const HeaderContainer = styled.div`
   position: relative;
   padding: 5em;
   text-align: center;
-  background: ${backgroundColor};
+  background: ${(props) => props.theme.mode === "light" ? backgroundColor : backgroundColorDark};
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
