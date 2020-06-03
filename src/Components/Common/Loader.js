@@ -1,20 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import loader from '../../Assets/Img/loader.svg'
+import LoaderSvg from './LoaderSvg'
 
 const LoaderContainer = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  img {
-    height: 128px;
-  }
+  height: 200px;
 `
 
 export const Loader = () => (
   <LoaderContainer>
-    <img src={loader} alt="Loading..." />
+    <LoaderSvg fill="#2ecc71" />
   </LoaderContainer>
 )

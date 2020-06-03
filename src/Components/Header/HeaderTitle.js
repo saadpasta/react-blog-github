@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { config } from '../../config'
-const { titleColor } = config.header
+const { titleColor, titleColorDark } = config.header
 
 export const HeaderTitle = styled.h1`
   font-weight: 700;
@@ -9,7 +9,7 @@ export const HeaderTitle = styled.h1`
   margin: 1.25rem 0;
   font-size: 4.5em;
   text-align: center;
-  color: ${titleColor};
+  color: ${(props) => props.theme.mode === "light" ? titleColor : titleColorDark};
 
   @media only screen and (max-width: 768px) {
     font-size: 3em;

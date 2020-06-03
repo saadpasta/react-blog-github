@@ -8,7 +8,7 @@ const StyledCategory = styled.div`
   padding: 3px 15px;
   font-size: 12px;
   text-transform: uppercase;
-  color: #fff;
+  color: ${ props => props.theme.body };
   font-weight: 300;
   line-height: 28px;
   font-family: "Quicksand";
