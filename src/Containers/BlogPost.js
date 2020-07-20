@@ -2,8 +2,6 @@ import React, {useState, useEffect, useCallback, useRef} from "react";
 import moment from "moment";
 import Markdown from "markdown-to-jsx";
 import readingTime from "reading-time";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import {docco} from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {GithubSelector, GithubCounter} from "react-reactions";
 import {userClient} from "../Utils/apollo";
 import {gql} from "apollo-boost";
