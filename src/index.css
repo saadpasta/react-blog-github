@@ -41,6 +41,13 @@ i,
 a,
 li {
   margin-top: 21px;
+}
+
+p,
+i,
+a,
+li,
+span {
   font-family: "Quicksand";
   font-size: 21px;
   letter-spacing: -0.03px;
@@ -59,7 +66,8 @@ blockquote {
   line-height: 44.4px;
   overflow-wrap: break-word;
   margin: 30px 0 33px 0;
-  padding: 0 0 0 50px;
+  padding: 0 0 0 1em;
+  border-left: .25em solid #dfe2e5;
 }
 
 code {
