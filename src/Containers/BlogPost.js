@@ -122,21 +122,17 @@ export default function BlogHome() {
       await userClient(userToken).mutate({
         mutation: gql`
           mutation RemoveReaction {
-            removeReaction(input:{subjectId:"${postNodeId}",content:${getNameByEmoji(
-          emoji
-        )},clientMutationId:"${user.node_id}"}) {
+            removeReaction(input:{subjectId:"${postNodeId}",content:${getNameByEmoji(emoji)},clientMutationId:"${user.node_id}"}) {
               reaction {
                 id
               }
             }
           }
-        `,
+        `
       });
 
       // Remove the reaction from the state
-      reactions = reactions.filter(
-        (r) => !(r.by === user.login && r.emoji === emoji)
-      );
+      reactions = reactions.filter(r => !(r.by === user.login && r.emoji === emoji))
     }
 
     setPostReactions(reactions);
