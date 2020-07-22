@@ -62,6 +62,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "xzebra",
+      "name": "Zebra",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/20362769?v=4",
+      "profile": "https://github.com/xzebra",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
