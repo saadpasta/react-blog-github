@@ -212,7 +212,7 @@ export default function BlogHome() {
             onSelect={emoji => toggleReaction(emoji)}
             onAdd={() => setReactionPopup(!reactionPopup)}
           />
-          <CommentsSection comments={postComments} />
+          <CommentsSection postUrl={post.url} comments={postComments} />
         </PostContainer>
       )}
     </>

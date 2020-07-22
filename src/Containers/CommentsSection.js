@@ -1,10 +1,19 @@
 import React from "react";
 
-import {Comment} from "../Components/Post/Comment";
+import {
+  Comment,
+  CommentLink,
+  CommentLinkContainer,
+} from "../Components/Post/Comment";
 
-const CommentsSection = ({comments}) => {
+const CommentsSection = ({postUrl, comments}) => {
   return (
     <>
+      <CommentLinkContainer>
+        <CommentLink href={postUrl + "#issue-comment-box"} target="_blank">
+          Post a comment
+        </CommentLink>
+      </CommentLinkContainer>
       {comments.map((v, id) => (
         <Comment comment={v} key={id} />
       ))}
