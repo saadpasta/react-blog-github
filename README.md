@@ -197,6 +197,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/viveksharmaui"><img src="https://avatars1.githubusercontent.com/u/28563357?v=4" width="100px;" alt=""/><br /><sub><b>Slim Coder</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=viveksharmaui" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/waleed345"><img src="https://avatars3.githubusercontent.com/u/42063633?v=4" width="100px;" alt=""/><br /><sub><b>waleed345</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=waleed345" title="Code">💻</a></td>
     <td align="center"><a href="https://abhishekashyap.studio/"><img src="https://avatars3.githubusercontent.com/u/29458374?v=4" width="100px;" alt=""/><br /><sub><b>Abhishek Kashyap</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=abhishekashyap" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/xzebra"><img src="https://avatars1.githubusercontent.com/u/20362769?v=4" width="100px;" alt=""/><br /><sub><b>Zebra</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=xzebra" title="Code">💻</a> <a href="#ideas-xzebra" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
