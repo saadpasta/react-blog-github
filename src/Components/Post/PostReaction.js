@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PostReaction = styled.span`
-  position: absolute;
+  position: static;
   bottom: 60px;
   animation-name: scale-in;
   animation-duration: 0.15s;

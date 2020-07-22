@@ -2,8 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import moment from "moment";
 import Markdown from "markdown-to-jsx";
 import readingTime from "reading-time";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { GithubSelector, GithubCounter } from "react-reactions";
 import { userClient } from '../Utils/apollo'
 import { gql } from "apollo-boost";
@@ -16,6 +14,8 @@ import { Loader } from "../Components/Common";
 import { PostContainer, PostTitle, PostDate, PostDateLink, PostReaction, BackButton } from "../Components/Post";
 import { AuthorDetails, AuthorAvatar, AuthorName } from "../Components/Post/Author";
 import { GithubLogin } from '../Components/Header'
+import { HyperLink, CodeBlock } from '../Components/Markdown/Overrides';
+import CommentsSection from "./CommentsSection";
 
 export default function BlogHome() {
   const issueNumber = parseInt(window.location.href.split("/").pop());
@@ -45,6 +45,22 @@ export default function BlogHome() {
         }
         updatedAt
         id
+        comments(first:100) {
+          nodes {
+            author {
+              ... on User {
+                avatarUrl
+                name
+                login
+              }
+            }
+            body
+            bodyHTML
+            bodyText
+            publishedAt
+            updatedAt
+          }
+        }
       }
     }
   }
@@ -53,6 +69,7 @@ export default function BlogHome() {
   const [postNodeId, setPostNodeId] = useState('');
   const [reactionPopup, setReactionPopup] = useState(false);
   const [postReactions, setPostReactions] = useState([]);
+  const [postComments, setPostComments] = useState([]);
   const { loading, error, data } = useQuery(GET_POSTS);
   const reactionsContainer = useRef(null);
   const userToken = localStorage.getItem('githubToken');
@@ -74,26 +91,6 @@ export default function BlogHome() {
 
     setPostReactions(reactions_array);
   }, []);
-
-  const HyperLink = ({ children, ...props }) => (
-    <a href={props.href} target="_blank" rel="noopener noreferrer" className="blog-post-anchor">
-      {children}
-      <style jsx="true">
-        {`
-          a {
-            color: #484848;
-            font-weight: 400;
-          }
-        `}
-      </style>
-    </a>
-  );
-
-  const CodeBlock = ({ children }) => (
-    <SyntaxHighlighter language="javascript" style={docco}>
-      {children.props.children}
-    </SyntaxHighlighter>
-  );
 
   const toggleReaction = async (emoji) => {
     let reactions = postReactions;
@@ -150,6 +147,7 @@ export default function BlogHome() {
         setPostNodeId(issues.id);
         setPost(issues);
         setReactionFun(issues.reactions.nodes);
+        setPostComments(issues.comments.nodes);
       }
     }
   }, [loading, error, data, setReactionFun]);
@@ -214,6 +212,7 @@ export default function BlogHome() {
             onSelect={emoji => toggleReaction(emoji)}
             onAdd={() => setReactionPopup(!reactionPopup)}
           />
+          <CommentsSection postUrl={post.url} comments={postComments} />
         </PostContainer>
       )}
     </>
