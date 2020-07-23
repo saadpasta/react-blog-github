@@ -27,6 +27,7 @@
 :white_check_mark: Tags - Topics  \
 :white_check_mark: Links \
 :white_check_mark: Reactions  \
+:white_check_mark: View Comments  \
 :white_check_mark: Images \
 :white_check_mark: Minutes Read \
 :white_check_mark: Beautiful UI Like Medium \
