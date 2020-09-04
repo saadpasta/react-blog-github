@@ -16,7 +16,7 @@
     "apollo-boost": "^0.4.7",
     "gh-pages": "^2.2.0",
     "graphql": "^14.5.8",
-    "markdown-to-jsx": "^6.10.3",
+    "markdown-to-jsx": "^6.11.4",
     "medium.css": "^1.0.2",
     "moment": "^2.24.0",
     "react": "^16.12.0",
