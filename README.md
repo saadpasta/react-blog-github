@@ -200,6 +200,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://abhishekashyap.studio/"><img src="https://avatars3.githubusercontent.com/u/29458374?v=4" width="100px;" alt=""/><br /><sub><b>Abhishek Kashyap</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=abhishekashyap" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/xzebra"><img src="https://avatars1.githubusercontent.com/u/20362769?v=4" width="100px;" alt=""/><br /><sub><b>Zebra</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=xzebra" title="Code">💻</a> <a href="#ideas-xzebra" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/jaeyeonling"><img src="https://avatars0.githubusercontent.com/u/40811999?v=4" width="100px;" alt=""/><br /><sub><b>Jaeyeon Kim</b></sub></a><br /><a href="https://github.com/saadpasta/react-blog-github/commits?author=jaeyeonling" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
