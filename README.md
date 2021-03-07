@@ -72,7 +72,7 @@ git@2.17.1 or higher
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/username/react-blog-github.git
+$ git clone https://github.com/saadpasta/react-blog-github.git
 
 # Go into the repository
 $ cd react-blog-github
