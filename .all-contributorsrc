@@ -81,6 +81,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "codebytec",
+      "name": "Parthiv",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76069950?v=4",
+      "profile": "https://parthiv.dev",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
