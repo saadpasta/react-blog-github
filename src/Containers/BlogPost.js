@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import ReactDOMServer from 'react-dom/server'
 import moment from "moment";
-import Markdown from "markdown-to-jsx";
+import Markdown, { compiler } from "markdown-to-jsx";
 import readingTime from "reading-time";
 import { GithubSelector, GithubCounter } from "react-reactions";
 import { userClient } from '../Utils/apollo'
@@ -45,7 +46,7 @@ export default function BlogHome() {
         }
         updatedAt
         id
-        comments(first:100) {
+        comments(first:100, orderBy: {direction: DESC, field: UPDATED_AT }) {
           nodes {
             author {
               ... on User {
@@ -65,6 +66,30 @@ export default function BlogHome() {
     }
   }
   `;
+  const GET_RECENT_COMMENT = gql`query {
+    repository(owner: "${config.githubUserName}", name: "${config.githubRepo}") {
+      issue(number: ${issueNumber}) {
+        comments(last:1) {
+          nodes {
+            author {
+              ... on User {
+                avatarUrl
+                name
+                login
+              }
+            }
+            body
+            bodyHTML
+            bodyText
+            publishedAt
+            updatedAt
+          }
+        }
+      }
+    }
+  }
+  `;
+  
   const [post, setPost] = useState([]);
   const [postNodeId, setPostNodeId] = useState('');
   const [reactionPopup, setReactionPopup] = useState(false);
@@ -91,7 +116,6 @@ export default function BlogHome() {
 
     setPostReactions(reactions_array);
   }, []);
-
   const toggleReaction = async (emoji) => {
     let reactions = postReactions;
     const user = await getAuthenticatedUser();
@@ -107,7 +131,7 @@ export default function BlogHome() {
       await userClient(userToken).mutate({
         mutation: gql`
           mutation AddReaction {
-            addReaction(input:{subjectId:"${postNodeId}",content:${getNameByEmoji(emoji)},clientMutationId:"${user.node_id}"}) {
+            addReaction(input:{subjectId:"${postNodeId}",content:${getNameByEmoji(emoji)}, clientMutationId:"${user.node_id}"}) {
               reaction {
                 id
               }
@@ -115,8 +139,8 @@ export default function BlogHome() {
           }
         `
       });
-
       reactions.push(reactionToAdd);
+
     } else {
       // Remove the reaction
       await userClient(userToken).mutate({
@@ -130,7 +154,6 @@ export default function BlogHome() {
           }
         `
       });
-
       // Remove the reaction from the state
       reactions = reactions.filter(r => !(r.by === user.login && r.emoji === emoji))
     }
@@ -139,7 +162,34 @@ export default function BlogHome() {
     reactionsContainer.current.forceUpdate(); // refresh the counter
     setReactionPopup(false); // hiding the reactions choice
   }
-
+  
+  // Adds a new comment 
+  const handleSubmitComment = async (e, value) => {
+    e.preventDefault();
+    const user = await getAuthenticatedUser();  
+    await userClient(userToken).mutate({
+      mutation: gql`
+          mutation AddComment {
+            addComment (input:{body:"${ReactDOMServer.renderToString(compiler(value, {wrapper: null})).replaceAll('"', "'")}", subjectId: "${postNodeId}" ,clientMutationId:"${user.node_id}"}) {
+              subject { 
+                id 
+              }
+            }
+          }
+        `
+      }
+    )
+    // retrieve the last comment
+    let d = await userClient(userToken).query({
+      query: GET_RECENT_COMMENT
+      }
+    )
+    let comment = d.data.repository.issue.comments.nodes[0];
+    
+    // update on the front-end
+    setPostComments([comment, ...postComments,]);
+  }
+  
   useEffect(() => {
     if (!loading) {
       if (data) {
@@ -157,11 +207,13 @@ export default function BlogHome() {
   }
 
   const onBackClick = () => {
-    // ifthe previous page does not exist in the history list. this method to load the previous (or next) URL in the history list.
-    window.history.go();
+    // if the previous page does not exist in the history list. this method to load the previous (or next) URL in the history list.
+    // window.history.go(); <this code does not do as what is subscribed above, comment for now>
+
     // The back() method loads the previous URL in the history list.
     window.history.back();
   };
+
 
   return (
     <>
@@ -212,7 +264,7 @@ export default function BlogHome() {
             onSelect={emoji => toggleReaction(emoji)}
             onAdd={() => setReactionPopup(!reactionPopup)}
           />
-          <CommentsSection postUrl={post.url} comments={postComments} />
+          <CommentsSection postUrl={post.url} comments={postComments} updateComments={handleSubmitComment} />
         </PostContainer>
       )}
     </>

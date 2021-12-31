@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@uiw/react-md-editor": "^2.1.11",
     "apollo-boost": "^0.4.7",
     "gh-pages": "^2.2.0",
     "graphql": "^14.5.8",

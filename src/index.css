@@ -43,6 +43,8 @@ li {
   margin-top: 21px;
 }
 
+
+
 p,
 i,
 a,
@@ -78,18 +80,33 @@ code {
   padding: 3px 5px;
 }
 
-pre > code {
+pre > code:not(.w-md-editor-text-input) {
   background: transparent !important;
   font-family: "Quicksand";
   font-size: 18px;
   padding: 0px;
 }
 
-pre {
+pre:not(.w-md-editor-text-pre, .wmde-markdown-color) {
   margin-top: 30px;
   border-radius: 10px;
   padding: 20px !important;
 }
+
+/* solves the styling bugs of w-md-editor */
+.w-md-editor-text-input {
+  -webkit-text-fill-color: unset !important;
+}
+.w-md-editor-text-pre {
+  visibility: hidden;
+}
+.w-md-editor-toolbar{
+  background: unset;
+}
+/* .w-md-editor-content {
+  height: 85px;
+} */
+
 
 mark,
 .highlighted {
