@@ -18,7 +18,7 @@
     "graphql": "^14.5.8",
     "markdown-to-jsx": "^6.10.3",
     "medium.css": "^1.0.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
