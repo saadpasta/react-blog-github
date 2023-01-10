@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react-blog-github/static/css/main.cfa08aa7.chunk.css",
-    "main.js": "/react-blog-github/static/js/main.166f362d.chunk.js",
-    "main.js.map": "/react-blog-github/static/js/main.166f362d.chunk.js.map",
+    "main.js": "/react-blog-github/static/js/main.cb288f39.chunk.js",
+    "main.js.map": "/react-blog-github/static/js/main.cb288f39.chunk.js.map",
     "runtime-main.js": "/react-blog-github/static/js/runtime-main.b7e97252.js",
     "runtime-main.js.map": "/react-blog-github/static/js/runtime-main.b7e97252.js.map",
-    "static/js/2.9f736ff1.chunk.js": "/react-blog-github/static/js/2.9f736ff1.chunk.js",
-    "static/js/2.9f736ff1.chunk.js.map": "/react-blog-github/static/js/2.9f736ff1.chunk.js.map",
+    "static/js/2.cb6ddc36.chunk.js": "/react-blog-github/static/js/2.cb6ddc36.chunk.js",
+    "static/js/2.cb6ddc36.chunk.js.map": "/react-blog-github/static/js/2.cb6ddc36.chunk.js.map",
     "index.html": "/react-blog-github/index.html",
-    "precache-manifest.1b8e3290ce665e6320a8991eb8303cc2.js": "/react-blog-github/precache-manifest.1b8e3290ce665e6320a8991eb8303cc2.js",
+    "precache-manifest.ff8c718e2659682584073ea1c5dd43e2.js": "/react-blog-github/precache-manifest.ff8c718e2659682584073ea1c5dd43e2.js",
     "service-worker.js": "/react-blog-github/service-worker.js",
     "static/css/main.cfa08aa7.chunk.css.map": "/react-blog-github/static/css/main.cfa08aa7.chunk.css.map",
-    "static/js/2.9f736ff1.chunk.js.LICENSE": "/react-blog-github/static/js/2.9f736ff1.chunk.js.LICENSE"
+    "static/js/2.cb6ddc36.chunk.js.LICENSE": "/react-blog-github/static/js/2.cb6ddc36.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.b7e97252.js",
-    "static/js/2.9f736ff1.chunk.js",
+    "static/js/2.cb6ddc36.chunk.js",
     "static/css/main.cfa08aa7.chunk.css",
-    "static/js/main.166f362d.chunk.js"
+    "static/js/main.cb288f39.chunk.js"
   ]
 }
