@@ -3,10 +3,10 @@ export const config = {
   githubConvertedToken: "Z2hwX0xhcG9DOW9qSktOVTlNUHJUdjVuM3dvTzBoYlZlTTJNWU5VYw==",
 
   // Your Github UserName
-  githubUserName: "saadpasta",
+  githubUserName: "sh20raj",
 
   // Your Github Repo Name Where You Have your issues as Blog
-  githubRepo: "react-blog-github",
+  githubRepo: "blog",
 
   // Set it to true if you have a Github app to add to this project
   // and fill the client ID & secret
@@ -15,7 +15,7 @@ export const config = {
   OAuthSecret: 'cc3db76ffe9848c92d83172807eececa79f0eb22',
 
   // Your Personal Blog Title
-  title : "Saad Pasta" ,
+  title : "Blog" ,
 
   // Your Personal Blog Subtitle
   subtitle : "Software Developer",
